@@ -38,7 +38,6 @@ def plot_advanced_sunspot_visualizations(df, sunactivity_col='SUNACTIVITY',
         xs = np.linspace(data.min(), data.max(), 200)
         density = gaussian_kde(data)
 
-        '''코드를 작성하시오'''
         axs[0, 1].hist(data, bins=hist_bins, density=True, alpha=0.6, color='gray', label='Histogram')
 
         axs[0, 1].plot(xs, density(xs), color='red', linewidth=2, label='Density')
@@ -54,7 +53,6 @@ def plot_advanced_sunspot_visualizations(df, sunactivity_col='SUNACTIVITY',
         if not df_20th.empty:
             axs[1, 0].boxplot(df_20th[sunactivity_col], vert=False)
 
-            '''코드를 작성하시오'''
 
     except:
         # 해당 기간 데이터가 없을 경우 예외 처리
@@ -99,12 +97,10 @@ try:
     df = load_data('data/sunspots.csv')
 
     # 사이드바에 파라미터 조절 슬라이더 추가
-    '''코드를 작성하시오'''
     st.sidebar.header("시각화 설정")
 
 
     # 연도 범위 선택
-    '''코드를 작성하시오'''
     year_min = int(df['YEAR'].min())
     year_max = int(df['YEAR'].max())
     year_range = st.sidebar.slider(
@@ -131,7 +127,6 @@ try:
     )
 
     # 산점도 점 크기 조절
-    '''코드를 작성하시오'''
     point_size = st.sidebar.slider(
     '산점도 점 크기',
     min_value=1,
@@ -141,7 +136,6 @@ try:
 
 
     # 산점도 투명도 조절
-    '''코드를 작성하시오'''
 
     point_alpha = st.sidebar.slider(
     '산점도 투명도',
@@ -171,4 +165,3 @@ try:
 except Exception as e:
     st.error(f"오류가 발생했습니다: {e}")
     st.info("데이터 파일의 구조를 확인해주세요. 'data/sunspots.csv' 파일이 존재하고 'YEAR'와 'SUNACTIVITY' 컬럼이 있어야 합니다.")
-    
